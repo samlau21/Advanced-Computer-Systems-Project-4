@@ -20,7 +20,7 @@ Encode: <br />
 - Iterates through a column of strings <br />
 - Maps each unique string to a hash map <br />
 - sores integer encoding in encoded Column <br />
-query: {<br />
+Query: {<br />
 - Checks if string exists in dictionary<br />
 - returns index if found, false if not<br />
 Prefix Scan: 
