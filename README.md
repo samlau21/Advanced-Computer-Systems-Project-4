@@ -49,6 +49,7 @@ Del:<br />
 <br />
 vanillaColumnScan{ <br />
 // demonstrates a linear scan <br />
+
 - iterate through the column and print every element <br />
 
 }
@@ -61,6 +62,7 @@ MultiThreading{<br />
 - divides column into 'numThreads' number of chunks <br />
 - assign each chunk to a thread <br />
 - encode each in parallel <br />
+
 }
 <br />
 <br />
@@ -70,6 +72,7 @@ neonQuery{<br />
 - load chunks of 4 integers into NEON register <br />
 - compare them against target value <br />
 - extract comparison results <br />
+
 }
 <br />
 <br />
@@ -80,6 +83,7 @@ neonPrefixScan{<br />
 - Compare prefix and key strings into NEON registers <br />
 - compare prefix and keys <br />
 - appends matching indexes into results vector <br />
+
 }
 <br />
 <br />
@@ -89,6 +93,7 @@ testQueryPerformaceSIMD{<br />
 - call SIMDNeon single query scan using neonQuery function <br />
 - call prefix scan using DictionaryEncoder prefixScan <br />
 - call SIMD prefix scan using neonPrefixScan function <br />
+
 }
 <br />
 <br />
@@ -96,4 +101,5 @@ testQueryPerformaceSIMD{<br />
 main{<br />
 - encode a column of strings using DictionaryEncoder class <br />
 - contains all functions for testing <br />
+
 }
