@@ -29,6 +29,8 @@ Prefix Scan:<br />
 - finds all dictionary keys with given prefix <br />
 - compares each key with prefix an collects all index cases of it<br />
 - returns vector of all matching indexes<br />
+
+}
 <br />
 <br />
 
@@ -48,8 +50,11 @@ Del:<br />
 vanillaColumnScan{ <br />
 // demonstrates a linear scan <br />
 - iterate through the column and print every element <br />
+
 }
 <br />
+<br />
+
 MultiThreading{<br />
 // demonstrates concurrent encoding with threads<br />
 - int numThreads <br />
@@ -58,6 +63,8 @@ MultiThreading{<br />
 - encode each in parallel <br />
 }
 <br />
+<br />
+
 neonQuery{<br />
 // performs SIMDNeon based search for a specific value in a vector <br />
 - load chunks of 4 integers into NEON register <br />
@@ -65,6 +72,8 @@ neonQuery{<br />
 - extract comparison results <br />
 }
 <br />
+<br />
+
 neonPrefixScan{<br />
 // performs SIMDNEon based prefex scan<br />
 - load prefix and key strings into NEON registers <br />
@@ -73,6 +82,8 @@ neonPrefixScan{<br />
 - appends matching indexes into results vector <br />
 }
 <br />
+<br />
+
 testQueryPerformaceSIMD{<br />
 - call a single query scan using DictionaryEncoder query <br />
 - call SIMDNeon single query scan using neonQuery function <br />
@@ -80,6 +91,8 @@ testQueryPerformaceSIMD{<br />
 - call SIMD prefix scan using neonPrefixScan function <br />
 }
 <br />
+<br />
+
 main{<br />
 - encode a column of strings using DictionaryEncoder class <br />
 - contains all functions for testing <br />
