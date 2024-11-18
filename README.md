@@ -12,67 +12,70 @@ How to use:
 - to change test, uncomment corresponding function(s) in main()
 <br />
 <br />
-PseudoCode:
-class DictionaryEncoder{
-Encode
-- Iterates through a column of strings
-- Maps each unique string to a hash map
-- sores integer encoding in encoded Column
-query
-- Checks if string exists in dictionary
-- returns index if found, false if not
-Prefix Scan
-- finds all dictionary keys with given prefix
-- compares each key with prefix an collects all index cases of it
-- returns vector of all matching indexes
-} 
-<br />
-class KeyValueStore{
-put:
-- insert of updated key pair in store
-get:
-- retrieves values associate with key
-- return false if key does not exist
-del:
-- removes key/value pair from store
+
+PseudoCode:<br />
+
+class DictionaryEncoder{<br />
+Encode: <br />
+- Iterates through a column of strings <br />
+- Maps each unique string to a hash map <br />
+- sores integer encoding in encoded Column <br />
+query: {<br />
+- Checks if string exists in dictionary<br />
+- returns index if found, false if not<br />
+Prefix Scan: 
+{<br />
+- finds all dictionary keys with given prefix <br />
+- compares each key with prefix an collects all index cases of it<br />
+- returns vector of all matching indexes<br />
 }
 <br />
-vanillaColumnScan{
-// demonstrates a linear scan
-- iterate through the column and print every element
+class KeyValueStore{<br />
+put:<br />
+- insert of updated key pair in store <br />
+get: <br />
+- retrieves values associate with key<br />
+- return false if key does not exist <br />
+del:<br />
+- removes key/value pair from store <br />
 }
 <br />
-MultiThreading{
-// demonstrates concurrent encoding with threads
-- int numThreads
-- divides column into 'numThreads' number of chunks
-- assign each chunk to a thread
-- encode each in parallel 
+vanillaColumnScan{ <br />
+// demonstrates a linear scan <br />
+- iterate through the column and print every element <br />
 }
 <br />
-neonQuery{
-// performs SIMDNeon based search for a specific value in a vector
-- load chunks of 4 integers into NEON register
-- compare them against target value
-- extract comparison results
+MultiThreading{<br />
+// demonstrates concurrent encoding with threads<br />
+- int numThreads <br />
+- divides column into 'numThreads' number of chunks <br />
+- assign each chunk to a thread <br />
+- encode each in parallel <br />
 }
 <br />
-neonPrefixScan{
-// performs SIMDNEon based prefex scan
-- load prefix and key strings into NEON registers
-- Compare prefix and key strings into NEON registers
-- compare prefix and keys
-- appends matching indexes into results vector
+neonQuery{<br />
+// performs SIMDNeon based search for a specific value in a vector <br />
+- load chunks of 4 integers into NEON register <br />
+- compare them against target value <br />
+- extract comparison results <br />
 }
 <br />
-testQueryPerformaceSIMD{
-- call a single query scan using DictionaryEncoder query
-- call SIMDNeon single query scan using neonQuery function
-- call prefix scan using DictionaryEncoder prefixScan
-- call SIMD prefix scan using neonPrefixScan function
+neonPrefixScan{<br />
+// performs SIMDNEon based prefex scan<br />
+- load prefix and key strings into NEON registers <br />
+- Compare prefix and key strings into NEON registers <br />
+- compare prefix and keys <br />
+- appends matching indexes into results vector <br />
 }
 <br />
-main{
-- encode a column of strings using DictionaryEncoder class
-- contains all functions for testing
+testQueryPerformaceSIMD{<br />
+- call a single query scan using DictionaryEncoder query <br />
+- call SIMDNeon single query scan using neonQuery function <br />
+- call prefix scan using DictionaryEncoder prefixScan <br />
+- call SIMD prefix scan using neonPrefixScan function <br />
+}
+<br />
+main{<br />
+- encode a column of strings using DictionaryEncoder class <br />
+- contains all functions for testing <br />
 }
