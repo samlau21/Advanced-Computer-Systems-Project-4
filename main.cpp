@@ -80,9 +80,9 @@ void vanillaColumnScan(const std::vector<std::string>& column) {
 }
 
 // Multi-threading example
-void multiThreadingExample(DictionaryEncoder& encoder, const std::vector<std::string>& column) {
+void multiThreading(DictionaryEncoder& encoder, const std::vector<std::string>& column) {
     std::vector<std::thread> threads;
-    int numThreads = 8; // Example thread count
+    int numThreads = 8; // thread count
     int chunkSize = column.size() / numThreads;
 
     for (int i = 0; i < numThreads; ++i) {
@@ -101,7 +101,7 @@ void multiThreadingExample(DictionaryEncoder& encoder, const std::vector<std::st
 }
 
 // NEON Utilization example
-void neonQueryExample(const std::vector<int>& data, int value) {
+void neonQuery(const std::vector<int>& data, int value) {
     int32x4_t val = vdupq_n_s32(value);
     for (size_t i = 0; i < data.size(); i += 4) {
         int32x4_t chunk = vld1q_s32(&data[i]);
@@ -148,7 +148,7 @@ void testQueryPerformanceSIMD(DictionaryEncoder& encoder, const std::vector<std:
     std::vector<int> encoded_data(column.size());
     encoder.encode(column);  // Populate encoded data for SIMD
     start = std::chrono::high_resolution_clock::now();
-    neonQueryExample(encoded_data, index); // Call SIMD function
+    neonQuery(encoded_data, index); // Call SIMD function
     end = std::chrono::high_resolution_clock::now();
     std::cout << "Single-item Query (SIMD) Time: " 
               << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()
@@ -196,7 +196,7 @@ int main()
     encoder.encode(column);
     testQueryPerformanceSIMD(encoder, column, "test1");
 
-    //code below used for performance testing
+    //code below used for various performance testing
     /*
     int index;
     if (encoder.query("banana", index)) {
@@ -210,7 +210,7 @@ int main()
     
     vanillaColumnScan(column);
     
-    multiThreadingExample(encoder, column);
+    multiThreading(encoder, column);
 
     */
     return 0;
