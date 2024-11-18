@@ -10,6 +10,7 @@ How to use:
 - to change thread number, change variable 'numThreads' in multiThreading
 - to change vector size, change variable 'column' in main()
 - to change test, uncomment corresponding function(s) in main()
+- compile with 'g++ -std=c++17 -pthread -march=armv8-a -o main main.cpp'
 <br />
 <br />
 
