@@ -31,15 +31,19 @@ Prefix Scan:<br />
 - returns vector of all matching indexes<br />
 <br />
 <br />
+
 class KeyValueStore{<br />
-put:<br />
+Put:<br />
 - insert of updated key pair in store <br />
-get: <br />
+
+Get: <br />
 - retrieves values associate with key<br />
 - return false if key does not exist <br />
-del:<br />
+
+Del:<br />
 - removes key/value pair from store <br />
 }
+<br />
 <br />
 vanillaColumnScan{ <br />
 // demonstrates a linear scan <br />
