@@ -20,15 +20,16 @@ Encode: <br />
 - Iterates through a column of strings <br />
 - Maps each unique string to a hash map <br />
 - sores integer encoding in encoded Column <br />
-Query: {<br />
+
+Query:<br />
 - Checks if string exists in dictionary<br />
 - returns index if found, false if not<br />
-Prefix Scan: 
-{<br />
+
+Prefix Scan:<br />
 - finds all dictionary keys with given prefix <br />
 - compares each key with prefix an collects all index cases of it<br />
 - returns vector of all matching indexes<br />
-}
+<br />
 <br />
 class KeyValueStore{<br />
 put:<br />
